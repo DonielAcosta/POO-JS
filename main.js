@@ -75,8 +75,53 @@ const doni ={
     ],
     learningPaths:[
         {
-            name:"Escuela de Desarrollo WEB"
+            name:"Escuela de Desarrollo WEB",
+            courses:[
+               "javascript",
+                "curso basico CSS",
+                "Curso de API REST PHP"
+            ],
         },
-        {},
+        {
+            name:"Escuela de Desing",
+            courses:[
+               "curso ilustraitor",
+                "curso animaciones",
+                "Curso fotoshop"
+            ],
+        },
+    ]
+}
+
+const duby ={
+    name: "dubexy",
+    username:"duby01",
+    points:100,
+    redes:{
+        twitter:"Duby_acosta",
+        instagram:"dubyacosta",
+        facebook: undefined
+    },
+    approvedCourses:[
+        "html",
+        "curso basico JavaScript"
+    ],
+    learningPaths:[
+        {
+            name:"Escuela de Desarrollo WEB",
+            courses:[
+               "javascript",
+                "curso basico CSS",
+                "Curso de API REST PHP"
+            ],
+        },
+        {
+            name:"Escuela de Desing",
+            courses:[
+               "curso ilustraitor",
+                "curso animaciones",
+                "Curso fotoshop"
+            ],
+        },
     ]
 }
