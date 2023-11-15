@@ -1,127 +1,46 @@
-// const doniel ={
-//     name:"Doniel",
-//     age:27,
-//     cursosAprobados:[
-//         "curso PHP",
-//         "curso PYTHON",
-//         "curso RUBY",
-//         "curso JAVASCRIP"
-//     ],
+class LearningPath{
 
-//     aprobarCurso(newCurso){
-//         this.cursosAprobados.push(newCurso);
-  
-//     }
-// };
+}
+const escuelaWeb = new LearningPath();
+const escuelaData = new LearningPath();
+const escuelaDesign = new LearningPath();
 
-// // DONIEL APROBO EL CURSO
-// doniel.cursosAprobados.push("Laravel");
+class Student{
+    constructor({
+        name,
+        email,
+        username,
+        twitter = undefined,
+        instagram = undefined,
+        facebook = undefined,
+        approvedCourses =[],
+        learningPaths =[],
+    }){
+        this.name = name,
+        this.email = email,
+        this.username = username,
+        this.socialMedia ={
+            twitter,
+            instagram,
+            facebook,
+        };
+        this.approvedCourses= approvedCourses,
+        this.learningPaths = learningPaths
+    }
+}
 
-// function Student(name,age,cursosAprobados){
-//     this.name = name;
-//     this.age = age;
-//     this.cursosAprobados = cursosAprobados;
-// }
-// Student.prototype.aprobarCurso = function(newCurso){
-//     this.cursosAprobados.push(newCurso);
-// }
-
-// const duby = new Student(
-
-//     "Duby Acosta",
-//     21,
-//     [
-//         "Diseno",
-//         "html"
-//     ]
-// );
-
-// // prototipos con sintaxis de  clas
-// class Studen2{
-//     constructor({name,age,cursosAprobados}){
-//         this.name = name;
-//         this.age = age;
-//         this.cursosAprobados = cursosAprobados;
-//     }
-
-//     aprobarCurso(newCurso){
-//         this.cursosAprobados.push(newCurso);
-
-//     }
-// }
-
-// const abc = new Studen2(
-
-//   { name: "Duby solanger",
-//     age:21,
-//     cursosAprobados:[
-//         "Diseno 2",
-//     ],}
-// );
-
-
-const doni ={
-    name: "Doni1995",
+const doniel = new Student({
+    name:"Doniel",
     username:"doni1995",
-    points:100,
-    redes:{
-        twitter:"Doniel_acosta",
-        instagram:"donielacosta",
-        facebook: undefined
-    },
-    approvedCourses:[
-        "javascript",
-        "curso basico CSS"
-    ],
-    learningPaths:[
-        {
-            name:"Escuela de Desarrollo WEB",
-            courses:[
-               "javascript",
-                "curso basico CSS",
-                "Curso de API REST PHP"
-            ],
-        },
-        {
-            name:"Escuela de Desing",
-            courses:[
-               "curso ilustraitor",
-                "curso animaciones",
-                "Curso fotoshop"
-            ],
-        },
-    ]
-}
+    email:"donielacosta1995@gmail.com",
+    twitter: "donielacosta",
+    learningPaths
+});
 
-const duby ={
-    name: "dubexy",
+const dubexy = new Student({
+    name:"dubexy",
     username:"duby01",
-    points:100,
-    redes:{
-        twitter:"Duby_acosta",
-        instagram:"dubyacosta",
-        facebook: undefined
-    },
-    approvedCourses:[
-        "html",
-        "curso basico JavaScript"
-    ],
-    learningPaths:[
-        {
-            name:"Escuela de Desarrollo WEB",
-            courses:[
-               "javascript",
-                "curso basico CSS",
-                "Curso de API REST PHP"
-            ],
-        },
-        {
-            name:"Escuela de Desing",
-            courses:[
-               "curso ilustraitor",
-                "curso animaciones",
-                "Curso fotoshop"
-            ],
-        },
-    ]
-}
+    email:"duby01@gmail.com",
+    instagram: "duby"
+
+});
