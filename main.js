@@ -3,14 +3,32 @@ class Course {
       name,
       classes = [],
     }) {
-      this.name = name;
+      this._name = name;
       this.classes = classes;
+    }
+
+    get name(){
+      return this._name;
+    }
+    // cambiar nombre
+    cahngeName(nuevoNombrecito){
+      this._name =nuevoNombrecito
+    }
+
+    set name(nuevoNombrecito){
+      if (nuevoNombrecito ==="Curso Malo de programacion") {
+        console.error("web noo");
+      }else{
+        this._name =nuevoNombrecito;
+      }
     }
   }
   
   const cursoProgBasica = new Course({
     name: "Curso Gratis de Programación Básica",
   });
+
+  cursoProgBasica.name
   const cursoDefinitivoHTML = new Course({
     name: "Curso Definitivo de HTML y CSS",
   });
