@@ -1,3 +1,27 @@
+function videoPlay(id){
+  const urlSecreta = "https://platzi.comwewq" + id;
+  console.log("reproduciendo");
+}
+function videoStop(id){
+  const urlSecreta = "https://platzi.comwqdqw" + id;
+  console.log("pausamos la url" +urlSecreta);
+}
+
+export class PClass{
+  constructor({
+    name,
+    videoId
+  }){
+    this.name =name;
+    this.videoId =videoId;
+  }
+  reproducir(){
+    videoPlay(this.videoId);
+  }
+  pausar(){
+    videoStop(this.videoId);
+  }
+}
 class Course {
     constructor({
       name,
@@ -72,7 +96,6 @@ const escuelaWeb = new LearningPath({
     ],
   })
   
-
 class Student{
     constructor({
         name,
