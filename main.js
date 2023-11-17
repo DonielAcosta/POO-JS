@@ -7,7 +7,7 @@ function videoStop(id){
   console.log("pausamos la url" +urlSecreta);
 }
 
-export class PClass{
+class PClass{
   constructor({
     name,
     videoId
@@ -26,9 +26,15 @@ class Course {
     constructor({
       name,
       classes = [],
+      isFree = false,
+      lang = "spanish",
+
     }) {
       this._name = name;
       this.classes = classes;
+      this.isFree = isFree;
+      this.lang = lang;
+
     }
 
     get name(){
@@ -50,6 +56,7 @@ class Course {
   
   const cursoProgBasica = new Course({
     name: "Curso Gratis de Programación Básica",
+    isFree:true,
   });
 
   cursoProgBasica.name
@@ -58,6 +65,8 @@ class Course {
   });
   const cursoPracticoHTML = new Course({
     name: "Curso Practico de HTML y CSS",
+    lang:"english",
+
   });
   
 class LearningPath{
@@ -120,7 +129,47 @@ class Student{
     }
 }
 
-const doniel = new Student({
+class FreeStudent extends Student{
+  constructor(props){
+    super(props);
+  }
+
+  approvedCourse(newCourse){
+    if (newCourse.isFree){
+      this.approvedCourses.push(newCourse);
+    }else{
+      console.warn("Lo siento," + this.name + ", solo puedes tomar cursos abiertos");
+    }
+
+  }
+}
+class BasicStudent extends Student{
+  constructor(props){
+    super(props);
+  }
+  approvedCourse(newCourse){
+    if (newCourse.lang !== "english"){
+      this.approvedCourses.push(newCourse);
+    }else{
+      console.warn("Lo siento," + this.name + ", no puedes tomar cursos en ingles");
+    }
+
+  }
+}
+class ExpertStudent extends Student{
+  constructor(props){
+    super(props);
+  }
+
+  approvedCourse(newCourse){
+ 
+      this.approvedCourses.push(newCourse);
+  
+
+  }
+}
+
+const doniel = new FreeStudent({
     name:"Doniel",
     username:"doni1995",
     email:"donielacosta1995@gmail.com",
@@ -131,7 +180,7 @@ const doniel = new Student({
       ],
 });
 
-const dubexy = new Student({
+const dubexy = new ExpertStudent({
     name:"dubexy",
     username:"duby01",
     email:"duby01@gmail.com",
