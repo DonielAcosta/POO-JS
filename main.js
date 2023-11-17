@@ -303,6 +303,63 @@ const alberto ={
 //   writable: false,
 //   configurable: false,
 // });
-Object.seal();
-Object.freeze();
-console.log(Object.getOwnPropertyDescriptors(alberto));
+// Object.seal();
+// Object.freeze();
+// console.log(Object.getOwnPropertyDescriptors(alberto));
+
+/************ */
+
+// const obj1 ={
+//   a:"a",
+//   b:"b",
+//   c:{
+//     d:"d",
+//     e:"e",
+//   }
+// }
+// const obj2 ={};
+
+// for (prop in obj1) {
+//   obj2[prop] = obj1[prop];
+// }
+
+// const obj3 = Object.assign({},obj1);
+// const obj4 = Object.create({},obj1);
+
+
+// const obj1 ={
+//   a:"a",
+//   b:"b",
+//   c:{
+//     d:"d",
+//     e:"e",
+//   }
+// }
+// const stringfiedComplexObj = JSON.stringify(obj1);
+// const obj = JSON.parse(stringfiedComplexObj);
+
+// function recursiva(){
+//   if (/*validacion*/) {
+//     //llamado recursivo 
+//   }else{
+//     //llamados normales, ssin recursividad
+//   }
+// }
+// const numeritos = [0,1,2,3,4,5,6,7,8,9];
+// let numerito = 0;
+// for (let index = 0; index < numeritos.length; index++) {
+//   const numerito = numeritos[index];
+//   console.log({index,numerito});
+  
+// }
+
+const numeritosA = [0,1,2,3,4,5,6,7,8,9,11,55,1564,3,53,321,351,315,35,35,2];
+
+function recursiva(numeritosA){
+  if (numeritosA.length !=0) {
+    const num = numeritosA[0];
+    console.log(num);
+    numeritosA.shift();
+    recursiva(numeritosA)
+  }
+}
