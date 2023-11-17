@@ -426,9 +426,6 @@ jose.name = "Jose Alberto";
 //Factory pattern y RORO
 /****************** */
 
-function requiredParam(param){
-  throw new Error(param + " este parametro es Obligatorio");
-}
 function createStudent({
   name = requiredParam("name"),
   email = requiredParam("email"),
@@ -438,9 +435,12 @@ function createStudent({
   facebook,
   approvedCourses = [],
   learningPaths = [],
-} = {}) { // 👈👈
-  return {
-    name,
+} = {}) {
+  const private = {
+    "_name": name,
+  };
+
+  const public = {
     email,
     age,
     approvedCourses,
@@ -450,7 +450,24 @@ function createStudent({
       instagram,
       facebook,
     },
+    readName() {
+      return private["_name"];
+    },
+    changeName(newName) {
+      private["_name"] = newName;
+    },
   };
+
+  Object.defineProperty(public, "readName", {
+    writable: false,
+    configurable: false,
+  });
+  Object.defineProperty(public, "changeName", {
+    writable: false,
+    configurable: false,
+  });
+
+  return public;
 }
 
-const lina = createStudent({name:"Jose Acosta"});
+const juan = createStudent({ email: "juanito@frijoles.co", name: "Juanito" });
