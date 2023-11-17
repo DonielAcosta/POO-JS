@@ -21,7 +21,7 @@ function videoPlay(id){
   const urlSecreta = "https://platzi.comwewq" + id;
   console.log("reproduciendo");
 }
-function videoStop(id){
+  function videoStop(id){
   const urlSecreta = "https://platzi.comwqdqw" + id;
   console.log("pausamos la url" +urlSecreta);
 }
@@ -42,118 +42,117 @@ class PClass{
   }
 }
 class Course {
-    constructor({
-      name,
-      classes = [],
-      isFree = false,
-      lang = "spanish",
+  constructor({
+    name,
+    classes = [],
+    isFree = false,
+    lang = "spanish",
 
-    }) {
-      this._name = name;
-      this.classes = classes;
-      this.isFree = isFree;
-      this.lang = lang;
+  }) {
+    this._name = name;
+    this.classes = classes;
+    this.isFree = isFree;
+    this.lang = lang;
 
-    }
+  }
 
-    get name(){
-      return this._name;
-    }
-    // cambiar nombre
-    cahngeName(nuevoNombrecito){
-      this._name =nuevoNombrecito
-    }
+  get name(){
+    return this._name;
+  }
+  // cambiar nombre
+  cahngeName(nuevoNombrecito){
+    this._name =nuevoNombrecito
+  }
 
-    set name(nuevoNombrecito){
-      if (nuevoNombrecito ==="Curso Malo de programacion") {
-        console.error("web noo");
-      }else{
-        this._name =nuevoNombrecito;
-      }
+  set name(nuevoNombrecito){
+    if (nuevoNombrecito ==="Curso Malo de programacion") {
+      console.error("web noo");
+    }else{
+      this._name =nuevoNombrecito;
     }
   }
-  
-  const cursoProgBasica = new Course({
-    name: "Curso Gratis de Programación Básica",
-    isFree:true,
-  });
+}
 
-  cursoProgBasica.name
-  const cursoDefinitivoHTML = new Course({
-    name: "Curso Definitivo de HTML y CSS",
-  });
-  const cursoPracticoHTML = new Course({
-    name: "Curso Practico de HTML y CSS",
-    lang:"english",
+const cursoProgBasica = new Course({
+  name: "Curso Gratis de Programación Básica",
+  isFree:true,
+});
 
-  });
-  
+cursoProgBasica.name
+const cursoDefinitivoHTML = new Course({
+  name: "Curso Definitivo de HTML y CSS",
+});
+const cursoPracticoHTML = new Course({
+  name: "Curso Practico de HTML y CSS",
+  lang:"english",
+});
+
 class LearningPath{
-    constructor({
-        name, 
-        courses =[]
-    }){
-        this.name =name;
-        this.courses =courses;
-    }
+  constructor({
+      name, 
+      courses =[]
+  }){
+      this.name =name;
+      this.courses =courses;
+  }
 }
 const escuelaWeb = new LearningPath({
-    name: "Escuela de Desarrollo Web",
-    courses: [
-      cursoProgBasica,
-      cursoDefinitivoHTML,
-      cursoPracticoHTML,
-    ],
-  });
+  name: "Escuela de Desarrollo Web",
+  courses: [
+    cursoProgBasica,
+    cursoDefinitivoHTML,
+    cursoPracticoHTML,
+  ],
+});
   
-  const escuelaData = new LearningPath({
-    name: "Escuela de Data Science",
-    courses: [
-      cursoProgBasica,
-      "Curso DataBusiness",
-      "Curso Dataviz",
-    ],
-  });
+const escuelaData = new LearningPath({
+  name: "Escuela de Data Science",
+  courses: [
+    cursoProgBasica,
+    "Curso DataBusiness",
+    "Curso Dataviz",
+  ],
+});
   
-  const escuelaVgs = new LearningPath({
-    name: "Escuela de Vidweojuegos",
-    courses: [
-      cursoProgBasica,
-      "Curso de Unity",
-      "Curso de Unreal",
-    ],
-  })
+const escuelaVgs = new LearningPath({
+  name: "Escuela de Vidweojuegos",
+  courses: [
+    cursoProgBasica,
+    "Curso de Unity",
+    "Curso de Unreal",
+  ],
+})
   
 class Student{
-    constructor({
-        name,
-        email,
-        username,
-        twitter = undefined,
-        instagram = undefined,
-        facebook = undefined,
-        approvedCourses =[],
-        learningPaths =[],
-    }){
-        this.name = name,
-        this.email = email,
-        this.username = username,
-        this.socialMedia ={
-            twitter,
-            instagram,
-            facebook,
-        };
-        this.approvedCourses= approvedCourses,
-        this.learningPaths = learningPaths
-    }
+  constructor({
+      name,
+      email,
+      username,
+      twitter = undefined,
+      instagram = undefined,
+      facebook = undefined,
+      approvedCourses =[],
+      learningPaths =[],
+  }){
+      this.name = name,
+      this.email = email,
+      this.username = username,
+      this.socialMedia ={
+          twitter,
+          instagram,
+          facebook,
+      };
+      this.approvedCourses= approvedCourses,
+      this.learningPaths = learningPaths
+  }
 
-    publicarComentario(commentContent){
-      const comment =new Comment({
-        content: commentContent,
-        studentName: this.name
-      });
-      comment.publicar();
-    }
+  publicarComentario(commentContent){
+    const comment =new Comment({
+      content: commentContent,
+      studentName: this.name
+    });
+    comment.publicar();
+  }
 }
 
 class FreeStudent extends Student{
@@ -189,10 +188,9 @@ class ExpertStudent extends Student{
   }
 
   approvedCourse(newCourse){
- 
-      this.approvedCourses.push(newCourse);
-  
 
+    this.approvedCourses.push(newCourse);
+  
   }
 }
 
@@ -202,7 +200,7 @@ class TeacherStudent extends Student{
   }
 
   approvedCourse(newCourse){
- 
+
     this.approvedCourses.push(newCourse);
   }
 
@@ -217,25 +215,25 @@ class TeacherStudent extends Student{
 }
 
 const doniel = new FreeStudent({
-    name:"Doniel",
-    username:"doni1995",
-    email:"donielacosta1995@gmail.com",
-    twitter: "donielacosta",
-    learningPaths: [
-        escuelaWeb,
-        escuelaVgs,
-      ],
+  name:"Doniel",
+  username:"doni1995",
+  email:"donielacosta1995@gmail.com",
+  twitter: "donielacosta",
+  learningPaths: [
+      escuelaWeb,
+      escuelaVgs,
+    ],
 });
 
 const dubexy = new ExpertStudent({
-    name:"dubexy",
-    username:"duby01",
-    email:"duby01@gmail.com",
-    instagram: "duby",
-    learningPaths: [
-        escuelaWeb,
-        escuelaData,
-      ],
+  name:"dubexy",
+  username:"duby01",
+  email:"duby01@gmail.com",
+  instagram: "duby",
+  learningPaths: [
+      escuelaWeb,
+      escuelaData,
+    ],
 });
 
 const ana = new TeacherStudent({
@@ -245,3 +243,66 @@ const ana = new TeacherStudent({
   instagram: "ana",
 
 });
+
+/***************** */
+//intermedio de POO
+/***************** */
+
+const alberto ={
+  name:"Doniel",
+  age:18,
+  approvedCourses:["Curso 1"],
+  addCourse(newCourse){
+    console.log("This",this);
+    console.log("This.approvedCourses",this);
+    this.approvedCourses.push(newCourse);
+  }
+}
+
+// console.log(Object.keys(alberto));
+// console.log(Object.getOwnPropertyNames(alberto));
+// console.log(Object.entries(alberto));
+
+// Object.defineProperties(alberto,"pruebaNasa",{
+//   value: "extraterrestres",
+//   writable: true,
+//   configurable: true,
+//   enumerable: true
+// });
+
+// Object.defineProperty(alberto,"navigator",{
+//   value:"Chrome",
+//   enumerable: false,
+//   writable: true,
+//   configurable: true,
+// });
+
+// Object.defineProperty(alberto,"editor",{
+//   value:"VSCode",
+//   enumerable: true,
+//   writable: false,
+//   configurable: true,
+// });
+
+// Object.defineProperty(alberto,"terminal",{
+//   value:"VSCode",
+//   enumerable: true,
+//   writable: false,
+//   configurable: false,
+// });
+// Object.defineProperty(alberto,"",{
+//   value:"",
+//   enumerable: true,
+//   writable: true,
+//   configurable: true,
+// });
+
+// Object.defineProperty(alberto,"pruebaNasa",{
+//   value:"extraterrestres",
+//   enumerable: false,
+//   writable: false,
+//   configurable: false,
+// });
+Object.seal();
+Object.freeze();
+console.log(Object.getOwnPropertyDescriptors(alberto));
