@@ -333,6 +333,9 @@ const obj1 ={
   c:{
     d:"d",
     e:"e",
+  },
+  editA(){
+    this.a ="AAAAAAAA";
   }
 }
 // const stringfiedComplexObj = JSON.stringify(obj1);
@@ -397,3 +400,57 @@ function deepCopy(subject){
   }
   return copySubject
 }
+
+const studentBase ={
+  name:undefined,
+  email:undefined,
+  age:undefined,
+  approvedCourses:undefined,
+  learningPaths:undefined,
+  socialMedia:{
+    twitter:undefined,
+    instagram:undefined,
+    facebook:undefined
+  },
+}
+
+const jose = deepCopy(studentBase);
+Object.seal(jose);
+jose.name = "Jose Alberto";
+// Object.defineProperty(jose,"name",{
+//   value:"jose",
+//   configurable:false,
+// })
+
+/****************** */
+//Factory pattern y RORO
+/****************** */
+
+function requiredParam(param){
+  throw new Error(param + " este parametro es Obligatorio");
+}
+function createStudent({
+  name = requiredParam("name"),
+  email = requiredParam("email"),
+  age,
+  twitter,
+  instagram,
+  facebook,
+  approvedCourses = [],
+  learningPaths = [],
+} = {}) { // 👈👈
+  return {
+    name,
+    email,
+    age,
+    approvedCourses,
+    learningPaths,
+    socialMedia: {
+      twitter,
+      instagram,
+      facebook,
+    },
+  };
+}
+
+const lina = createStudent({name:"Jose Acosta"});
