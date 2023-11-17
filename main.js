@@ -1,3 +1,22 @@
+class Comment{
+  constructor({
+    content,
+    studentName,
+    studentRole = "estudiante",
+  }){
+
+    this.content = content;
+    this.studentName = studentName;
+    this.studentRole = studentRole;
+    this.likes = 0;
+  }
+
+  publicar(){
+    console.log(this.studentName + " (" + this.studentRole + ")");
+    console.log(this.likes + " likes");
+    console.log(this.content);
+  }
+}
 function videoPlay(id){
   const urlSecreta = "https://platzi.comwewq" + id;
   console.log("reproduciendo");
@@ -127,6 +146,14 @@ class Student{
         this.approvedCourses= approvedCourses,
         this.learningPaths = learningPaths
     }
+
+    publicarComentario(commentContent){
+      const comment =new Comment({
+        content: commentContent,
+        studentName: this.name
+      });
+      comment.publicar();
+    }
 }
 
 class FreeStudent extends Student{
@@ -169,6 +196,26 @@ class ExpertStudent extends Student{
   }
 }
 
+class TeacherStudent extends Student{
+  constructor(props){
+    super(props);
+  }
+
+  approvedCourse(newCourse){
+ 
+    this.approvedCourses.push(newCourse);
+  }
+
+  publicarComentario(commentContent){
+    const comment =new Comment({
+      content: commentContent,
+      studentName: this.name,
+      studentRole: "profesor",
+    });
+    comment.publicar();
+  }
+}
+
 const doniel = new FreeStudent({
     name:"Doniel",
     username:"doni1995",
@@ -189,4 +236,12 @@ const dubexy = new ExpertStudent({
         escuelaWeb,
         escuelaData,
       ],
+});
+
+const ana = new TeacherStudent({
+  name:"Ana Contreras",
+  username:"ana1911a",
+  email:"anacontreras@gmail.com",
+  instagram: "ana",
+
 });
