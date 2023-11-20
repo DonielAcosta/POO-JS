@@ -559,17 +559,34 @@ function Student({
     instagram,
     facebook,
   }
+    const private = {
+    "_learningPaths": [],
+  };
 
-  if (isArray(learningPaths)) {
-    this.learningPaths =[];
-    for(learningPathIndex in learningPaths){
 
-      if (learningPaths[learningPathIndex] instanceof LearningPath) {
-
-        this.learningPaths.push(learningPaths[learningPathIndex]);
+  Object.defineProperty(this,"learningPaths",{
+    get(){
+      return private[_learningPaths];
+    },
+    set(newLP){
+  
+      if (newLP instanceof LearningPath) {
+        private[_learningPaths].push(newLP);
+      }else{
+        console.warn("Alguno e LPS no es una instancia del prototipo learningpath")
       }
     }
-  }
+  });
+  // if (isArray(learningPaths)) {
+  //   this.learningPaths =[];
+  //   for(learningPathIndex in learningPaths){
+
+  //     if (learningPaths[learningPathIndex] instanceof LearningPath) {
+
+  //       this.learningPaths = learningPaths[learningPathIndex];
+  //     }
+  //   }
+  // }
 
 
   // const private = {
@@ -621,5 +638,21 @@ function Student({
 
   // return public;
 }
+Object.defineProperty(Student.prototype,"learningPaths",{
+  get(){
+    return this._learningPaths
+  },
+  set(newLP){
+
+    if (newLP instanceof LearningPath) {
+      this._learningPaths.push(newLP);
+    }else{
+      console.warn("Alguno e LPS no es una instancia del prototipo learningpath")
+    }
+  }
+});
+
+const escuelaWeb = new LearningPath({name:"Escuela de WebDev"});
+const escuelaData = new LearningPath({name:"Escuela de Data Science"});
 
 const juan =  new Student({ email: "juanito@frijoles.co", name: "Juanito" });
